@@ -35,7 +35,6 @@ if (!isProduction) {
 
 // Serve HTML
 app.use("*all", async (req, res) => {
-  console.log("*all!!!");
   try {
     const url = req.originalUrl.replace(base, "");
 
