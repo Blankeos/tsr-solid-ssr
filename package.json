@@ -1,0 +1,28 @@
+{
+  "name": "vite-solid-ts-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "preview": "cross-env NODE_ENV=production node server"
+  },
+  "dependencies": {
+    "@tanstack/router-plugin": "^1.112.3",
+    "@tanstack/solid-router": "^1.112.2",
+    "compression": "^1.8.0",
+    "express": "^5.0.1",
+    "sirv": "^3.0.1",
+    "solid-js": "^1.9.4"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.4",
+    "cross-env": "^7.0.3",
+    "vite": "^6.1.1",
+    "vite-plugin-solid": "^2.11.2"
+  }
+}
