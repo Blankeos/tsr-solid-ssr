@@ -1,8 +1,9 @@
 import { RouterProvider, createRouter } from "@tanstack/solid-router";
 
+import { ParentProps } from "solid-js";
 import { routeTree } from "./routeTree.gen";
 
-const router = createRouter({
+const _router = createRouter({
   routeTree,
   defaultPreload: "intent",
   scrollRestoration: true,
@@ -10,14 +11,21 @@ const router = createRouter({
 
 declare module "@tanstack/solid-router" {
   interface Register {
-    router: typeof router;
+    router: typeof _router;
   }
 }
 
-export default function App() {
+type AppRenderContext = {
+  value?: {
+    url: string;
+  };
+  router: typeof _router;
+};
+
+export default function App(props: ParentProps<AppRenderContext>) {
   return (
     <>
-      <RouterProvider router={router} />
+      <RouterProvider router={props.router} />
     </>
   );
 }
